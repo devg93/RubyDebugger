@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: 5
+  username: root
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: error_logs_db_development
+
+test:
+  <<: *default
+  database: error_logs_db_test
+
+production:
+  <<: *default
+  database: error_logs_db_production
+  username: root
+  password: <%= ENV['MYSQL_DATABASE_PASSWORD'] %>
