@@ -12,19 +12,16 @@ class Api::ErrorloggerController < ApplicationController
         end
       end
 
-      def index
+      def getall
         @debug_messages = ErrorLog.all
         render json: @debug_messages
       end
 
       def show
-        render json: @debug_message
+        render json: @debug_message=3
       end
 
 
-      def test
-        render json: { message: params[:service_name] }
-      end
 
       def get_by_service_name
         @debug_messages = ErrorLog.where(service_name: params[:service_name])
@@ -36,9 +33,7 @@ class Api::ErrorloggerController < ApplicationController
         render json: @debug_messages
       end
 
-
-
-      private
+  #     private
 
 
   # def debug_message_params
